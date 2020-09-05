@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:heel/screen/body/custombody.dart';
-import 'package:heel/screen/customappbar/customappbar.dart';
+
+import 'package:heel/screen/mainpage.dart';
 
 
 void main() {
@@ -36,9 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
           child: Scaffold(
-           
-              drawer:CustomDrawer(title1: "hello world",subtitle: "tony",),
-              body: CustomBody(),
-      ),
-    );}
-  }
+          body: Mainpage(),
+                    ),
+                  );}}
