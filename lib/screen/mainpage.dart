@@ -1,6 +1,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:heel/screen/THEME.dart';
+import 'package:heel/screen/appicon.dart';
+import 'package:heel/screen/sem.dart';
 
 class Mainpage extends StatelessWidget {
   
@@ -45,58 +48,38 @@ class Mainpage extends StatelessWidget {
                        Sem(title:"semester5"), 
                        Sem(title:"semester6"),
                         Sem(title:"semester7"), 
-                        Sem(title:"semester8"),
-                      
-                    
-                  
-                     
-                    ],
+                        Sem(title:"semester8"),],
                   ),
                 ),
-              ),
-        ],
+              ), 
+              ListView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+children: [
+  ClipRRect(
+    borderRadius: BorderRadius.circular(30),
+    child: Image.asset("assets/image/1.jpg")),
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical:8.0),
+      child: Row(
+        mainAxisAlignment:MainAxisAlignment.start,
+        children:[
+          
+          Text("Semester1",style:bigstyle,),
+  Text("Calicut beach" ,style:smallstyle,),
+        ]
+      ),
+      
+    ),
+    Text("BUJI"),
+    
+    ],),
+              
+              ],
       ),
     );
   }
 }
 
-class Sem extends StatelessWidget {
- final String title;
-
-  const Sem({
-    Key key,this.title,
-  }) : super(key: key);
 
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(1),
-      margin: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-           color: Colors.white70,
-borderRadius:BorderRadius.circular(10)
-                   ),
-child: Text(title,
-style:TextStyle(
-  
-  fontSize:19)),
-    );
-  }
-}
-
-class AppIcon extends StatelessWidget {
-  const AppIcon({ Key key, }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Icon(Icons.menu),
-        Icon(Icons.search),
-      ],
-
-    );
-  }
-}
