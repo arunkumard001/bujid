@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:heel/screen/mainpage.dart';
+import 'package:heel/widgets.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,17 +43,15 @@ class _MyHomePageState extends State<MyHomePage> {
           height: 30,
           decoration: BoxDecoration(
             color: Color.fromRGBO(9, 9, 65, 1),
+          borderRadius: BorderRadius.circular(30)
           ),
-          child: Row(children: [
-            Icon(
-              Icons.place,
-              color: Colors.white,
-            ),
-            Text("map veiw", style: TextStyle(color: Colors.white)),
-          ]),
+          child: floatingaction(),
         ),
         body: Mainpage(),
-      ),
+      ),   
     );
   }
-}
+
+  
+  }
+
