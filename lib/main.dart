@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        Showalldetail.routename:(context)=>Showalldetail(),
+        Showalldetail.routename: (context) => Showalldetail(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -28,8 +28,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -48,16 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
           width: 100,
           height: 30,
           decoration: BoxDecoration(
-            color: Color.fromRGBO(9, 9, 65, 1),
-          borderRadius: BorderRadius.circular(30)
-          ),
-          child: floatingaction(),
+              color: Color.fromRGBO(9, 9, 65, 1),
+              borderRadius: BorderRadius.circular(30)),
+          child: floatingaction("Map View"),
         ),
         body: Mainpage(),
-      ),   
+      ),
     );
   }
-
-  
-  }
-
+}

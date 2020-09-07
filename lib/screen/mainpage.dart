@@ -2,11 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:heel/screen/Memory.dart';
 
 import 'package:heel/screen/appicon.dart';
+import 'package:heel/screen/datamodel.dart';
 import 'package:heel/screen/sem.dart';
 import 'package:heel/screen/showalldetail.dart';
 import 'package:heel/widgets.dart';
 
 class Mainpage extends StatelessWidget {
+  List<Datamodel> housedata = [
+    Datamodel(
+        semester: "SEMESTER1",
+        place: "CALICUT BEACH",
+        event: "travel",
+        imgpath: "assets/img/1.jpg"),
+    Datamodel(
+      semester: "SEMESTER5",
+      place: "COLLEGE CAMPUS",
+      event: "DIKSH 2020",
+      imgpath: "assets/img/3.jpg",
+    ),
+    Datamodel(
+      semester: "SEMESTER1",
+      place: "COLLAGE CANTEEN ",
+      event: "FIRST YEAR ONAM",
+      imgpath: "assets/img/2.jpg",
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -17,11 +37,10 @@ class Mainpage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               AppIcon(),
-              
-          firsttitle(),
+              firsttitle("CUIET"),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 22),
-                child:  secondtitle(),
+                child: secondtitle("EC Department"),
               ),
               Container(
                 height: 60,
@@ -45,60 +64,39 @@ class Mainpage extends StatelessWidget {
                   ),
                 ),
               ),
-              ListView(
+              ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                children: [
-                  GestureDetector(
-                    onTap:()=>onpressedevent(context),
-                                        child: Memory(
-                                          semester: "SEMESTER1",
-                                          place: "COLLAGE CANTEEN ",
-                                          event: "FIRST YEAR ONAM",
-                                          imgpath: "assets/img/2.jpg",
-                                        ),
-                                      ),
-                                      Memory(
-                                          semester: "SEMESTER1",
-                                          place: "CALICUT BEACH",
-                                          event: "travel",
-                                          imgpath: "assets/img/1.jpg"),
-                                      Memory(
-                                        semester: "SEMESTER5",
-                                        place: "COLLEGE CAMPUS",
-                                        event: "DIKSH 2020",
-                                        imgpath: "assets/img/3.jpg",
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        );
-                      }
-                    
-              void onpressedevent(context) {
-                      Navigator.of(context).pushNamed(Showalldetail.routename);
-                      
-                      
+                itemCount: housedata.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                    onTap: () {
+                      onpressedevent(context, index);
+                    },
+                    child: Memory(
+                      semester: housedata[index].semester,
+                      place: housedata[index].place,
+                      event: housedata[index].event,
+                      imgpath: housedata[index].imgpath,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  void onpressedevent(context, index) {
+    Map arugument1 = {
+      "semester": housedata[index].semester,
+      "place": housedata[index].place,
+      "event": housedata[index].event,
+      "imgpath": housedata[index].imgpath,
+    };
+    Navigator.of(context)
+        .pushNamed(Showalldetail.routename, arguments: arugument1);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
