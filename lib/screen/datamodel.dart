@@ -5,3 +5,7 @@ class Datamodel {
   String imgpath;
   Datamodel({this.semester, this.place, this.event, this.imgpath});
 }
+class Semester{
+  String semester;
+  Semester({this.semester});
+}

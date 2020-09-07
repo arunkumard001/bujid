@@ -27,6 +27,18 @@ class Mainpage extends StatelessWidget {
       imgpath: "assets/img/2.jpg",
     ),
   ];
+  List<Semester> semester1 = [
+    Semester(
+      semester: "semester1",
+    ),
+    Semester(semester: "semester2"),
+    Semester(semester: "semester3"),
+    Semester(semester: "semester4"),
+    Semester(semester: "semester5"),
+    Semester(semester: "semester6"),
+    Semester(semester: "semester7"),
+    Semester(semester: "semester8"),
+  ];
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -47,27 +59,21 @@ class Mainpage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ListView(
+                  child: ListView.builder(
+                    itemCount: semester1.length,
                     scrollDirection: Axis.horizontal,
-                    children: [
-                      Sem(
-                        title: "semester1",
-                      ),
-                      Sem(title: "semester2"),
-                      Sem(title: "semester3"),
-                      Sem(title: "semester4"),
-                      Sem(title: "semester5"),
-                      Sem(title: "semester6"),
-                      Sem(title: "semester7"),
-                      Sem(title: "semester8"),
-                    ],
+                    itemBuilder: (BuildContext context, int index) {
+                      return Sem(
+                        title: semester1[index].semester,
+                      );
+                    },
                   ),
                 ),
               ),
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: housedata.length,
+                itemCount: 1,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                     onTap: () {
@@ -97,6 +103,6 @@ class Mainpage extends StatelessWidget {
       "imgpath": housedata[index].imgpath,
     };
     Navigator.of(context)
-        .pushNamed(Showalldetail.routename, arguments: arugument1);
+        .pushNamed(Showalldetail.routename, arguments:arugument1);
   }
 }
