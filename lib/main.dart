@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:heel/screen/mainpage.dart';
+import 'package:heel/screen/showalldetail.dart';
 import 'package:heel/widgets.dart';
 
 void main() {
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        Showalldetail.routename:(context)=>Showalldetail(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -24,6 +28,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);

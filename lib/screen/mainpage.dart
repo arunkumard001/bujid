@@ -3,6 +3,7 @@ import 'package:heel/screen/Memory.dart';
 
 import 'package:heel/screen/appicon.dart';
 import 'package:heel/screen/sem.dart';
+import 'package:heel/screen/showalldetail.dart';
 import 'package:heel/widgets.dart';
 
 class Mainpage extends StatelessWidget {
@@ -49,7 +50,7 @@ class Mainpage extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 children: [
                   GestureDetector(
-                    onTap:onpressedevent,
+                    onTap:()=>onpressedevent(context),
                                         child: Memory(
                                           semester: "SEMESTER1",
                                           place: "COLLAGE CANTEEN ",
@@ -77,12 +78,10 @@ class Mainpage extends StatelessWidget {
                         );
                       }
                     
-                    
+              void onpressedevent(context) {
+                      Navigator.of(context).pushNamed(Showalldetail.routename);
                       
-                      void onpressedevent() {
-                        print(
-                          "hello"
-                        );
+                      
   }
 }
 
