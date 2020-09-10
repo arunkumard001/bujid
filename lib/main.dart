@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:heel/screen/form.dart';
 import 'package:heel/screen/mainpage.dart';
 import 'package:heel/screen/showalldetail.dart';
 import 'package:heel/widgets.dart';
@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         Showalldetail.routename: (context) => Showalldetail(),
+        CustomForm.Form1: (context) => CustomForm(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -32,8 +33,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
-
-  @override
+ @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
@@ -42,6 +42,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: Icon(Icons.menu),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              SizedBox(
+                height: 100,
+              ),
+              ListTile(
+                leading: IconButton(
+                    icon: Icon(Icons.forum_sharp),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(CustomForm.Form1);
+                      Navigator.of(context).pop();
+                    }),
+              ),
+            ],
+          ),
+        ),
         floatingActionButton: Container(
           width: 100,
           height: 30,

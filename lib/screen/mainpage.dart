@@ -8,6 +8,7 @@ import 'package:heel/screen/showalldetail.dart';
 import 'package:heel/widgets.dart';
 
 class Mainpage extends StatelessWidget {
+  final GlobalKey scaffold = new GlobalKey();
   List<Datamodel> housedata = [
     Datamodel(
         semester: "SEMESTER1",
@@ -48,7 +49,11 @@ class Mainpage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              AppIcon(),
+              AppIcon(
+                ontap: () {
+                 scaffold.currentState;
+                },
+              ),
               firsttitle("CUIET"),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 22),
@@ -73,7 +78,7 @@ class Mainpage extends StatelessWidget {
               ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: 1,
+                itemCount: housedata.length,
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                     onTap: () {
@@ -103,6 +108,6 @@ class Mainpage extends StatelessWidget {
       "imgpath": housedata[index].imgpath,
     };
     Navigator.of(context)
-        .pushNamed(Showalldetail.routename, arguments:arugument1);
+        .pushNamed(Showalldetail.routename, arguments: arugument1);
   }
 }

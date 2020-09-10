@@ -17,7 +17,7 @@ class Memory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical:5.0,horizontal: 2.0),
+      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 2.0),
       child: Card(
         child: Stack(children: [
           Column(
@@ -59,17 +59,34 @@ class Memory extends StatelessWidget {
           ),
           Positioned(
             right: 30,
-            child: IconButton(
-                icon: Icon(
-                  Icons.favorite_sharp,
-                  size: 55,
-                  color: Colors.white, 
-                   
-                ),
-                onPressed: null),
+            child: Customfavitoricon(),
           ),
         ]),
       ),
     );
+  }
+}
+
+class Customfavitoricon extends StatefulWidget {
+  @override
+  _CustomfavitoriconState createState() => _CustomfavitoriconState();
+}
+
+class _CustomfavitoriconState extends State<Customfavitoricon> {
+  bool favitoricon = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+        icon: Icon(
+          favitoricon ? Icons.favorite_sharp : Icons.favorite_border,
+          size: 55,
+          color: favitoricon ? Colors.white : Colors.red,
+        ),
+        onPressed: () {
+          setState(() {
+            favitoricon = !favitoricon;
+          });
+        });
   }
 }

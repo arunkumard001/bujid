@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:heel/screen/THEME.dart';
+
 
 class Showalldetail extends StatelessWidget {
   static const routename = "/showdetail";
+ final GlobalKey _scaffoldkey = new GlobalKey();
   @override
   Widget build(BuildContext context) {
     Map argu = ModalRoute.of(context).settings.arguments;
@@ -26,12 +29,13 @@ class Showalldetail extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(argu["semester"]),
-            Text(argu["place"]),
+            Text(argu["semester"],style:bigstyle),
+            Text(argu["place"],style: bigstyle,),
           ],
         ),
-        Text(argu["event"])
+        Text(argu["event"],style: bigstyle,),
       ]),
+      key: _scaffoldkey,
     ));
   }
 }
