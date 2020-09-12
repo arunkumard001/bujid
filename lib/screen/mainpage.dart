@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:heel/screen/Memory.dart';
 
 import 'package:heel/screen/appicon.dart';
@@ -8,7 +9,7 @@ import 'package:heel/screen/showalldetail.dart';
 import 'package:heel/widgets.dart';
 
 class Mainpage extends StatelessWidget {
-  final GlobalKey scaffold = new GlobalKey();
+final GlobalKey  <ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
   List<Datamodel> housedata = [
     Datamodel(
         semester: "SEMESTER1",
@@ -51,7 +52,7 @@ class Mainpage extends StatelessWidget {
             children: [
               AppIcon(
                 ontap: () {
-                 scaffold.currentState;
+                 _scaffold.currentState.openDrawer();
                 },
               ),
               firsttitle("CUIET"),

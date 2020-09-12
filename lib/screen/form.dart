@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class CustomForm extends StatelessWidget {
-  static const Form1 = "/CustomForm";
+  static const form1 = "/CustomForm";
   GlobalKey<FormState> _form = GlobalKey<FormState>();
   Map <String,String>formdata = {
     "name of semester": null,

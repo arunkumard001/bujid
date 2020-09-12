@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         Showalldetail.routename: (context) => Showalldetail(),
-        CustomForm.Form1: (context) => CustomForm(),
+        CustomForm.form1: (context) => CustomForm(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -42,9 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.menu),
-        ),
+      
         drawer: Drawer(
           child: ListView(
             children: [
@@ -52,10 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 100,
               ),
               ListTile(
+                title: Text("CREATE A FORM"),
                 leading: IconButton(
                     icon: Icon(Icons.forum_sharp),
                     onPressed: () {
-                      Navigator.of(context).pushNamed(CustomForm.Form1);
+                      Navigator.of(context).pushNamed(CustomForm.form1);
                       Navigator.of(context).pop();
                     }),
               ),

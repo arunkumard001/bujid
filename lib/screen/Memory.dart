@@ -68,12 +68,14 @@ class Memory extends StatelessWidget {
 }
 
 class Customfavitoricon extends StatefulWidget {
+  static bool favitoricon;
+
   @override
   _CustomfavitoriconState createState() => _CustomfavitoriconState();
 }
 
 class _CustomfavitoriconState extends State<Customfavitoricon> {
-  bool favitoricon = true;
+static  bool favitoricon = true;
 
   @override
   Widget build(BuildContext context) {

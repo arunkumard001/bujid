@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:heel/screen/THEME.dart';
+import 'Memory.dart';
 
 
 class Showalldetail extends StatelessWidget {
   static const routename = "/showdetail";
  final GlobalKey _scaffoldkey = new GlobalKey();
+
+  bool favitoricon = Customfavitoricon.favitoricon;
   @override
   Widget build(BuildContext context) {
     Map argu = ModalRoute.of(context).settings.arguments;
@@ -19,8 +22,9 @@ class Showalldetail extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Align(
                   alignment: Alignment.topRight,
-                  child: Icon(
+                  child: Icon(favitoricon ? Icons.favorite_border_rounded:
                     Icons.favorite_border,
+                    color: favitoricon? Colors.white:Colors.red,
                     size: 70,
                   )),
             )
